@@ -1,0 +1,112 @@
+
+/* /////////////////////////// */
+body {
+    width: 99vw;
+    height: 100vh;
+    display: flex;
+    margin: 0% 0.5%;
+    box-sizing: border-box;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+#body {
+    height: 93%;
+    display: flex;
+    margin: 0% 0.5%;
+    box-sizing: border-box;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    /* background: linear-gradient(to bottom, , blue); */
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    padding: 0% 0.5%;
+    height: 6%;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+}
+
+.nav_link {
+    padding:0.5% 1%;
+    text-decoration: none;
+    color: black;
+    height: 100%;
+}
+.nav_link:hover {
+    background-color: black;
+    color: white;
+}
+/* .nav_link:active {
+    background-color: grey;
+    border-bottom: 1% solid white;
+} */
+
+/* ////////////////////////////////////////////////////////////////// */
+.auth_page {
+    display: flex;
+    height: 75%;
+    width: 25%;
+    border: 1% solid lightgrey;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+.auth_page form {
+    width: 100%;
+    height: 43%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.auth_page button {
+    width: 102%;
+    height: 9%;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.auth_page button:active {
+    background-color: orange;
+    color: white;
+}
+#register_view {
+    display: none;
+}
+.form_input_box {
+    border: none;
+    border-bottom: 3px solid black;
+    height: 16%;
+    width: 100%;
+    padding: 2%;
+    margin: 1% auto;
+    background-color: ghostwhite;
+    box-sizing: border-box;
+}
+.log_reg_btn {
+    font-size: 18px;
+    height: 22%;
+    border: none;
+    color: white;
+    background: linear-gradient(to right, blue, violet);
+    border-radius: 3px;
+}
+.icon_small {
+    width: 10%;
+}

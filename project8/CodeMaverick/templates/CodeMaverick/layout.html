@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}CodeMaverick{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'CodeMaverick/styles.css' %}">
+    </head>
+    <body>
+        <nav class="navbar">
+            <a id="title" class="nav_link" href="{% url 'home' %}"><strong>CodeMaverick</strong></a>
+            {% if user.is_authenticated %}
+            <a id="profile_btn" class="nav_link" href=""><strong>{{ user.username }}</strong></a>
+            <a id="flwing_btn" class="nav_link" href="#">Profile</a>
+            <a id="saved_btn" class="nav_link">Teams</a>
+            <a id="blocklist_btn" class="nav_link">Solve</a>
+            <a class="nav_link" href="{% url 'logout' %}">Discuss</a>
+            <a class="nav_link" href="{% url 'logout' %}">Log Out</a>
+            {% else %}
+            <a class = "login_btn nav_link" href="{% url 'login' %}">Log In</a>
+            {% endif %}
+        </nav>
+        <div id="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+    <script src="{% static 'CodeMaverick/index.js' %}"></script>
+</html>

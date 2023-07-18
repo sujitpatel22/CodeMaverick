@@ -1,0 +1,43 @@
+{% extends "CodeMaverick/layout.html" %}
+
+{% block body %}
+
+<div class = "auth_page" id = "login_view">
+    <h2>Login</h2>
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <input autofocus class="form_input_box" type="text" name="username" placeholder="Username" required>
+        <input class="form_input_box" type="password" name="password" placeholder="Password" required>
+        <input class="btn btn-primary log_reg_btn form_input_box" type="submit" value="Login">
+    </form>
+    <button class="form_input_box">
+        <img class = "icon_small auth_btn form_input_box" src = ""> Login with Google
+    </button>
+    Don't have an account? <a class = "register_btn login_btn" href="{% url 'register' %}">Register here.</a>
+</div>
+
+<div class= "auth_page" id="register_view">
+    <h2>Register</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+        <input class="form_input_box" autofocus type="text" name="username" min = "8" max = "24" placeholder="Username" required>
+        <input class="form_input_box" autofocus type="text" name="name" min = "8" max = "24" placeholder="Name" required>
+        <input class="form_input_box" type="email" name="email" placeholder="Email Address" required>
+        <input class="form_input_box" type="password" name="password" min = "8" max = "24" placeholder="Password" required>
+        <input class="form_input_box" type="password" name="confirmation" placeholder="Confirm Password" required>
+        <input class="btn btn-primary log_reg_btn form_input_box" type="submit" value="Register">
+    </form>
+    <button class="form_input_box">
+        <img class = "icon_small auth_btn" src = ""> Continue with Google
+    </button>
+    Already have an account? <a class = "login_btn" href="{% url 'login' %}">Log In here.</a>
+</div>
+{% endblock %}
