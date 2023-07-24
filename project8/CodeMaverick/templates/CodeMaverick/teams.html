@@ -1,0 +1,51 @@
+{% extends "CodeMaverick/layout.html" %}
+{% load static %}
+{% block body %}
+
+<div class="teams_body_selected_box body_main_box win" id ="teams_body_selected_box">
+    <div class="teams_list_box_1 body_box_2 win" id = "teams_title_list_box">
+        <div class = "teams_list_title teams_list_box_2 body_box_3">
+            <h2>Teams</h2>
+        </div>
+        <input class = "teams_list_box_2 teams_search search" type = "search" placeholder="Search teams">
+        <div class = "teams_list_all_container teams_list_box_2 body_box_3">
+            <div class="team_item" id="team_1">
+                <div class="team_item_name team_item_box2">
+                    <h2>Team Name</h2>
+                    <p>Rank: 2345</p>
+                </div>
+                <div class="team_item_info team_item_box2">
+                    <p>Admin: Sujit Patel</p>
+                    <p>5 members</p>
+                </div>
+                <div class="team_item_btns team_item_box2">
+                    <button class="team_item_btn btn" id="team_apply_btn">Apply</button>
+                    <button class="team_item_btn btn" id="team_mark_btn">Mark</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="teams_selected_box body_box_2 win" id = "teams_selected_box">
+        <div class=  "team_info_box_head team_info_box_2 team_info_box">
+            <p class = "team_title title" id="team_title">My team</p>
+            <button class="show_team_info_btn btn" id ="show_team_info">Info</button>
+        </div>
+        <div class = "team_info_box_body team_info_box_2 team_info_box">
+            <p class="team_rank"><strong>Rank: 2234567890</strong></p>
+            <p class = "team_members_count"><strong>5 members</strong></p>
+            <div class="team_members_icons_box members_icons_box">
+                <span class = "team_members_icon_1">
+            </div>
+        </div>
+        <div class="team_chat_box team_info_box">
+            <div class="chat_content">
+            </div>
+            <div class="chat_input_box">
+                <input class = "chat_message_input input" id="chat_message_input" type = "text" required placeholder="Type here to send">
+                <img class="chat_send_btn" id="chat_send_btn" src="https://img.favpng.com/8/9/12/computer-icons-button-tak-products-services-co-ltd-sales-office-icon-design-png-favpng-X986mKtCPvW1JL2ncmkfeSMJs.jpg">
+            </div>
+        <div>
+    </div>
+</div>
+
+{% endblock %}

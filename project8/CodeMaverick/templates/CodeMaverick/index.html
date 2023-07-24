@@ -1,5 +1,45 @@
 {% extends "CodeMaverick/layout.html" %}
 {% load static %}
 {% block body %}
-
+<nav class = "ques_nav index_nav navbar">
+    <select name="category" id="category">
+         <option value="Data structures">Data structures</option>
+    </select>
+    <select name="level" id="level">
+        <option value="Easy">Easy</option>
+        <option value="Intermidiate">Intermidiate</option>
+        <option value="Hard">Hard</option>
+   </select>
+   <select name="src" id="src">
+        <option value="LeetCode">LeetCode</option>
+        <option value="HackerRank">HackerRank</option>
+        <option value="geeksForGeeks">geeksForGeeks</option>
+        <option value="CodeChef">CodeChef</option>
+        <option value="Other">Other</option>
+    </select>
+    <select name="list" id="list">
+        <option value="Usolved">Unsolved</option>
+        <option value="Solved">Solved</option>
+        <option value="listed">listed</option>
+        <option value="All">All</option>
+    </select>
+    <select name="Ques_type" id="Ques_type">
+        <option value="Solve">Solve</option>
+        <option value="Issue">Issue</option>
+        <option value="Enhancement">Enhancement</option>
+        <option value="Review">Review</option>
+        <option value="Other">Other</option>x
+    </select>
+</nav>
+{% comment %} <div class = "status_bar navbar" id = "status-bar">
+    <span class = "qno_span status_bar_element"></span>
+    <span class = "qno_span status_bar_element"></span>
+</div> {% endcomment %}
+<div class = "body_box body_main_box win" id="ques_list_preview_box">
+    <div class = "ques_list_box body_box_2 win" id = "ques_list_box">
+    </div>
+    <aside class="ques_preview_box body_box_2 win" id ="ques_preview_box">
+        <p id="ques_statement">Click any question to preview the problem statement</p>
+    </aside>
+</div>
 {% endblock %}

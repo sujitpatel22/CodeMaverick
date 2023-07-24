@@ -13,6 +13,16 @@ from .models import *
 def home(request):
     return render(request, "CodeMaverick/index.html")
 
+def load_profile(request):
+    return render(request, "CodeMaverick/profile.html")
+
+
+def teams(request):
+    return render(request, "CodeMaverick/teams.html")
+
+def load_teams(request):
+    teams = Team.objects.all().order_by("rank").all()
+    return JsonResponse([team.team_info() for team in teams], safe = False, status = 201)
 
 @csrf_exempt
 def login_view(request):
