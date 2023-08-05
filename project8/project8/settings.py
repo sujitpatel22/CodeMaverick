@@ -68,8 +68,13 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = "project8.wsgi.application"
+ASGI_APPLICATION = "project8.routing.application"
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': "channels.layers.InMemoryChannelLayer"
+        }
+    }
+# WSGI_APPLICATION = "project8.wsgi.application"
 
 
 # Database

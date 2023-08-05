@@ -11,21 +11,24 @@
         <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:wght@600&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&family=Victor+Mono:wght@600&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'CodeMaverick/styles.css' %}">
     </head>
     <body>
         <nav class="navbar">
             <a id="title" class="nav_link" href="{% url 'home' %}"><strong>CodeMaverick</strong></a>
-            {% comment %} {% if user.is_authenticated %} {% endcomment %}
-            <a id="profile_btn" class="nav_link" href=""><strong>{{ user.username }}</strong></a>
-            <a id="flwing_btn" class="nav_link" href="{% url 'load_profile' %}">Profile</a>
+            {% if user.is_authenticated %}
+            <a id="profile_btn" class="nav_link" href="{% url 'profile' %}"><strong>{{ user.username }}</strong></a>
+            {% endif %}
+            {% comment %} <a id="flwing_btn" class="nav_link" href="{% url 'profile' %}">Profile</a> {% endcomment %}
             <a id="teans_btn" class="nav_link" href="{% url 'teams' %}">Teams</a>
             <a id="blocklist_btn" class="nav_link">Solve</a>
-            <a class="nav_link" href="{% url 'logout' %}">Discuss</a>
+            <a class="nav_link" href="{% url 'home' %}">Discuss</a>
+            {% if user.is_authenticated %}
             <a class="nav_link" href="{% url 'logout' %}">Log Out</a>
-            {% comment %} {% else %} {% endcomment %}
+            {% else %}
             <a class = "login_btn nav_link" id ="login_btn" href="{% url 'login' %}">Login</a>
-            {% comment %} {% endif %} {% endcomment %}
+            {% endif %}
         </nav>
         <div id="body">
             {% block body %}

@@ -1,5 +1,37 @@
 {% extends "CodeMaverick/layout.html" %}
 {% load static %}
 {% block body %}
+<div class="profile_box_1">
+    <img class = "profile_img img" id="profile_img" src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=" alt="profile image">
+    <div class="profile_info">
+        <div class="profile_info_basic">
+            <strong>Rohit Sharma</strong>
+            <p>sharmajikabeta@gmail.com</p>
+        </div>
+        <p class="profile_rank"><strong>Rank: 120</strong></p>
+        <div class="profile_utilities">
+            <button class="followers_btn profile_info_btn btn" id="profile_followers_btn"><strong>Followers</strong></button>
+            <button class="contacts_btn profile_info_btn btn" id="profile_contacts_btn"><strong>Contacts</strong></button>
+        </div>
+    </div>
+</div>
+<div class="profile_box_2">
+    <nav class="profile_nav" id="profile_nav">
+        <button id="about_btn" class="profile_nav_btn" value="about">About</button>
+        <button id="skills_btn" class="profile_nav_btn" value="skills">Skills</button>
+        <button id="Certifications_btn" class="profile_nav_btn" value="certifications">Certifications</button>
+        <button id="Projects_btn" class="profile_nav_btn" value="projects">Projects</button>
+        <button id="Work_btn" class="profile_nav_btn" value="work">Work experience</button>
+    </nav>
 
+    <div class="profile_box_2_content">
+        <div class="head_title">
+            <strong>Certifications</strong>
+            <img class="profile_edit_btn" src = "../static\CodeMaverick\edit.png">
+        </div>
+        <div class="body_content">
+            
+        </div>
+    </div>
+</div>
 {% endblock %}

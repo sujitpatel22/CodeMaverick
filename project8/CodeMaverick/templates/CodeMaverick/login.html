@@ -17,29 +17,7 @@
         <img class = "icon_small" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png"> Login with Google
     </button>
     <div>
-        Don't have an account? <a class = "switch_login_reg_btn" id = "switch_register_btn" href="{% url 'register' %}">Register</a>
-    </div>
-</div>
-
-<div class= "auth_page" id="register_view">
-    <p class="auth_page_title">Register</p>
-    {% if message %}
-        <div>{{ message }}</div>
-    {% endif %}
-    <form action="{% url 'register' %}" method="post">
-    {% csrf_token %}
-        <input class="form_input_box" autofocus type="text" name="username" min = "8" max = "24" placeholder="Username" required>
-        <input class="form_input_box" autofocus type="text" name="name" min = "8" max = "24" placeholder="Name" required>
-        <input class="form_input_box" type="email" name="email" placeholder="Email Address" required>
-        <input class="form_input_box" type="password" name="password" min = "8" max = "24" placeholder="Password" required>
-        <input class="form_input_box" type="password" name="confirmation" placeholder="Confirm Password" required>
-        <input class="btn btn-primary log_reg_btn form_input_box" type="submit" value="Register">
-    </form>
-    <button class="form_input_box">
-        <img class = "icon_small" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png"> Continue with Google
-    </button>
-    <div>
-        Already have an account? <a class = "switch_login_reg_btn" id = "switch_login_btn" href="{% url 'login' %}">Log In</a>
+        Don't have an account? <a class = "switch_login_btn" id = "switch_register_btn" href="{% url 'register' %}">Register</a>
     </div>
 </div>
 {% endblock %}
