@@ -1,21 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
+  load_teams();
   // document.getElementById('#teams_btn').addEventListener('click', () => load_teams());
   document.querySelector('#new_team_btn').addEventListener('click', () => create_new_team());
 
-  // const navLinks = document.querySelectorAll('nav a');
-  // navLinks.forEach(link => {
-  //   link.addEventListener('click', function (event) {
-  //     event.preventDefault();
-  //     navLinks.forEach(link => {
-  //       link.style.borderBottom = "none";
-  //       link.style.backgroundColor = "";
-  //       link.style.color = "black";
-  //     });
-  //     this.style.borderBottom = "2px solid orange";
-  //     this.style.backgroundColor = "black";
-  //     this.style.color = "white";
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      navLinks.forEach(link => {
+        link.style.borderBottom = "none";
+        link.style.backgroundColor = "";
+        link.style.color = "black";
+      });
+      this.style.borderBottom = "2px solid orange";
+      this.style.backgroundColor = "black";
+      this.style.color = "white";
 
-  //   });
+    });
+  });
 
 
   const profile_links = document.querySelectorAll('.profile_nav_btn');
@@ -92,17 +94,19 @@ function load_profile_info(info) {
     })
 }
 
+
 function load_teams() {
   all_teams_box = document.querySelector('#all_teams_list_box');
   all_teams_box.innerHTML = "";
   fetch('load_teams')
     .then(response => response.json())
     .then(response => {
-      response[myteams].forEach(team => {
+      console.log(response);
+      response["my_teams"].forEach(team => {
         div = document.createElement('div');
-        div.className.append(team_item);
+        div.className = "teams";  // Corrected class assignment
         const randID = Math.random().toString(36).substring(2, 10);
-        div.id = `$${ranID$}${team["id"]}`;
+        div.id = `${randID}${team["id"]}`;  // Corrected backtick usage
         div.innerHTML = `<div class="team_item_name team_item_box2">
                               <h2>${team["name"]}</h2>
                               <p>${team["rank"]}</p>
@@ -116,38 +120,43 @@ function load_teams() {
                               <button class="team_item_btn btn" id="team_mark_btn">Mark</button>
                           </div>`;
         all_teams_box.append(div);
-        apply_btn = document.querySelector(`#${team["id"]} #team_apply_btn`);
-        apply_btn.addEventListener('click', () => {
-          fetch(`team_apply/${team["id"]}`)
-          apply_btn.innerHTML = "Requested";
-        })
-        // document.querySelector(`#${team["id"]} #team_mark_btn`)
-      })
-    })
+        // apply_btn = document.querySelector(`#${randID}${team["id"]} #team_apply_btn`);
+        // apply_btn.addEventListener('click', () => {
+        //   fetch(`team_apply/${team["id"]}`)
+        //     .then(response => response.text())  // Add this .then block
+        //     .then(() => {
+        //       apply_btn.innerHTML = "Requested";
+        //     });
+        // });
+      });
+    });
 }
 
 function create_new_team() {
+  
   document.querySelector('.new_team_container').style.display = "block";
   document.querySelector('#new_team_create_btn').addEventListener('click', () => {
-    notif = document.querySelector('.new_team_box p');
+    notif = document.querySelector('.new_team_box').children[2];
     notif.innerHTML = "Creating new team...";
     fetch('new_team', {
       method: "POST",
+      headers:{
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
-        data: document.querySelector('#new_team_name').value
+        data: document.querySelector('#new_team_name').value,
       })
     })
-      .then(response => response.Json())
+      .then(response => response.json())
       .then(success => {
         notif.innerHTML = success;
         notif.style.color = "green";
-        document.querySelector('.cancel_btn').addEventListener('click', () => { document.querySelector('.new_team_container').style.display = "none" });
         load_teams();
       })
-      .then(error => {
+      .catch(error => {
         notif.innerHTML = error;
         notif.style.color = "red";
-      })
+      });
+    })
     document.querySelector('#cancel_btn').addEventListener('click', () => { document.querySelector('.new_team_container').style.display = "none" });
-  })
 }

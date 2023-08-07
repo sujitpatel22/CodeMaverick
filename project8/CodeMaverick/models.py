@@ -27,8 +27,8 @@ class User(AbstractUser):
             "qsolved": self.qSolved
         }
     
-class Notification():
-    id = models.IntegerField(default = 0, null=False)
+class Notification(models.Model):
+    id = models.IntegerField(default = 0, null=False, primary_key=True)
     sender = models.ForeignKey('User', on_delete=models.CASCADE, null = False)
     receiver = models.CharField(max_length=64, null=False)
     message = models.TextField(max_length=512, null = False)
@@ -42,12 +42,12 @@ class Notification():
             "status": self.status
         }
 
-class Team():
-    team_id = models.CharField(max_length=12, null = False)
+class Team(models.Model):
+    team_id = models.CharField(max_length=12, null = False, primary_key=True)
     name = models.TextField(max_length = 24, null = False)
     admin = models.ForeignKey('User', on_delete=models.PROTECT, null=False)
     rank = models.IntegerField(default = 0, null = True)
-    members = models.ManyToManyField('User', related_name="get_members", symmetrical = False)
+    members = models.ManyToManyField('User', related_name="get_members")
 
     def team_info(self):
         return {
@@ -55,25 +55,25 @@ class Team():
             "name": self.name,
             "admin": self.admin.name,
             "rank": self.rank,
-            "members": len(self.members)
+            "members": "self.members"
             }
 
-class Message():
-    room_id = models.CharField(max_length=24, null=False)
-    sender = models.ForeignKey('User', on_delete=models.CASCADE, null=False)
-    receiver = models.ForeignKey('User', on_delete=models.CASCADE, null=False)
+class Message(models.Model):
+    room_id = models.CharField(max_length=24, null=False, primary_key=True)
+    sender = models.ForeignKey('User', on_delete=models.CASCADE,related_name ='send_messages', null=False)
+    receiver = models.ForeignKey('User', on_delete=models.CASCADE,related_name ='receive_messages', null=False)
     content = models.TextField(null = False)
     time = models.TimeField(auto_now_add=True)
 
-class ChatRoom():
-    room_id = models.CharField(max_length=24, null=False)
-    sender = models.ForeignKey('User', on_delete=models.CASCADE, null=False)
-    receiver = models.ForeignKey('User', on_delete=models.CASCADE, null=False)
+class ChatRoom(models.Model):
+    room_id = models.CharField(max_length=24, null=False, primary_key=True)
+    sender = models.ForeignKey('User', on_delete=models.CASCADE,related_name ='send_chatroom_messages', null=False)
+    receiver = models.ForeignKey('User', on_delete=models.CASCADE,related_name ='receive_chatroom_messages', null=False)
     messages = models.ManyToManyField('Message', related_name="get_messages", symmetrical=False)
     team = models.ForeignKey('Team', on_delete=models.PROTECT, null = True)
 
-class Solution():
-    ques_id = models.IntegerField(default = 0, null = False)
+class Solution(models.Model):
+    ques_id = models.IntegerField(default = 0, null = False, primary_key=True)
     sol_id = models.IntegerField(default = 0, null = False)
     user = models.ForeignKey('User', on_delete = models.PROTECT, null = False)
     sol = models.TextField(null = False)
@@ -86,7 +86,7 @@ class Solution():
             "likes": self.likes
             }
 
-class Question():
+class Question(models.Model):
     ques_id = models.IntegerField(default = 0, null = False)
     user = models.ForeignKey('User', on_delete = models.CASCADE, null = False)
     ques = models.TextField(null = False)
