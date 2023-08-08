@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //     this.style.backgroundColor = "black";
   //     this.style.color = "white";
   //   });
+  // });
 
 
   const profile_links = document.querySelectorAll('.profile_nav_btn');
@@ -91,60 +92,61 @@ function load_profile_info(info) {
     })
 }
 
-function load_teams() {
-  window.onload = function () {
+function load_teams() { 
+  // removed windpws load function
     all_teams_box = document.getElementById('all_teams_list_box');
     all_teams_box.innerHTML = "";
     fetch('load_teams')
       .then(response => response.json())
       .then(response => {
         console.log(response)
-        //   response["my_teams"].forEach(team => {
-        //     div = document.createElement('div');
-        //     div.className = "team_item";
-        //     const randID = Math.random().toString(36).substring(2, 10);
-        //     div.id = `${randID}${team["id"]}`;
-        //     div.innerHTML = `<div class="team_item_name team_item_box2">
-        //                           <h2>${team["name"]}</h2>
-        //                           <p>${team["rank"]}</p>
-        //                       </div>
-        //                       <div class="team_item_info team_item_box2">
-        //                           <p>Admin: ${team["admin"]}</p>
-        //                           <p>${team["members"]} members</p>
-        //                       </div>
-        //                       <div class="team_item_btns team_item_box2">
-        //                           <button class="team_item_btn btn" id="team_apply_btn">Apply</button>
-        //                           <button class="team_item_btn btn" id="team_mark_btn">Mark</button>
-        //                       </div>`;
-        //     all_teams_box.append(div);
-        //     apply_btn = document.querySelector(`#${randID}${team["id"]} #team_apply_btn`);
-        //     apply_btn.addEventListener('click', () => {
-        //       fetch(`team_apply/${team["id"]}`)
-        //       apply_btn.innerHTML = "Requested";
-        //     })
-        //     // document.querySelector(`#${team["id"]} #team_mark_btn`)
-        //   })
+          response["my_teams"].forEach(team => {
+            div = document.createElement('div');
+            div.className = "team_item";
+            const randID = Math.random().toString(36).substring(2, 10);
+            div.id = `${randID}${team["id"]}`;
+            div.innerHTML = `<div class="team_item_name team_item_box2">
+                                  <h2>${team["name"]}</h2>
+                                  <p>${team["rank"]}</p>
+                              </div>
+                              <div class="team_item_info team_item_box2">
+                                  <p>Admin: ${team["admin"]}</p>
+                                  <p>${team["members"]} members</p>
+                              </div>
+                              <div class="team_item_btns team_item_box2">
+                                  <button class="team_item_btn btn" id="team_apply_btn">Apply</button>
+                                  <button class="team_item_btn btn" id="team_mark_btn">Mark</button>
+                              </div>`;
+            all_teams_box.append(div);
+            // apply_btn = document.querySelector(`#${randID}${team["id"]} #team_apply_btn`);
+            // apply_btn.addEventListener('click', () => {
+            //   fetch(`team_apply/${team["id"]}`)
+            //   apply_btn.innerHTML = "Requested";
+            // })
+            // document.querySelector(`#${team["id"]} #team_mark_btn`)
+          })
       })
       .catch(error => {
         console.log(error);
       })
   }
-}
+
 
 function create_new_team() {
   document.querySelector('.new_team_container').style.display = "block";
   team_name = document.getElementById('new_team_name');
   new_team_create_btn = document.querySelector('#new_team_create_btn');
-  team_name.addEventListener("input", function (e) {
-    if (team_name.value.length == 0) {
-      new_team_create_btn.setAttribute("disabled", "true");
-      new_team_create_btn.style.color = "darkgray";
-    } else {
-      new_team_create_btn.setAttribute("disabled", "false");
-      new_team_create_btn.style.color = "#004000";
-    }
-  })
-  new_team_create_btn.addEventListener('click', () => {
+  // team_name.addEventListener("input", function (e) {
+  //   if (team_name.value.length == 0) {
+  //     new_team_create_btn.setAttribute("disabled", "true");
+  //     new_team_create_btn.style.color = "darkgray";
+  //   } else {
+  //     new_team_create_btn.setAttribute("disabled", "false");
+  //     new_team_create_btn.style.color = "#004000";
+  //   }
+  // })
+  new_team_create_btn.addEventListener('click', (event) => {
+    event.preventDefault()
     notif = document.querySelector('.new_team_box p');
     notif.innerHTML = "Creating new team...";
     fetch('new_team', {
@@ -155,7 +157,7 @@ function create_new_team() {
     })
       .then(response => response.json())
       .then(success => {
-        notif.innerHTML = success;
+        notif.innerHTML = success["success"];
         notif.style.color = "green";
         load_teams();
       })

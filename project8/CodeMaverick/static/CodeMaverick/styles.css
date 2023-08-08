@@ -347,6 +347,7 @@ body {
     border: none;
 }
 
+/* added scrollbar */
 .all_teams_list_box {
     flex-direction: column;
     height: 81%;
@@ -354,7 +355,9 @@ body {
     align-items: flex-start;
     padding: 0% 2%;
     margin: 1% 0 0 0;
+    overflow: auto;
 }
+
 
 .team_item {
     display: flex;
