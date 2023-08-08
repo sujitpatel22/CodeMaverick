@@ -21,7 +21,7 @@
             <a id="profile_btn" class="nav_link" href="{% url 'profile' %}"><strong>{{ user.username }}</strong></a>
             {% endif %}
             {% comment %} <a id="flwing_btn" class="nav_link" href="{% url 'profile' %}">Profile</a> {% endcomment %}
-            <a id="teans_btn" class="nav_link" href="{% url 'teams' %}">Teams</a>
+            <a id="teams_btn" class="nav_link">Teams</a>
             <a id="blocklist_btn" class="nav_link">Solve</a>
             <a class="nav_link" href="{% url 'home' %}">Discuss</a>
             {% if user.is_authenticated %}
