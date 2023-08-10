@@ -520,11 +520,12 @@ body {
 }
 
 .msg_box {
-    min-width: 70%;
+    /* min-width: 70%; */
     width: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    margin: 1px 2px;
     /* border-radius: 0px 8px 8px 8px; */
 }
 
@@ -535,7 +536,7 @@ body {
 .quote_msg {
     height: auto;
     min-width: 108px;
-    width: auto;
+    max-width: 35vw;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -608,38 +609,46 @@ body {
     flex-direction: row;
     align-content: center;
     border-radius: 30px;
-    height: 12%;
     width: 100%;
     padding: 1% 1% 2% 1%;
-    /* margin: 1% auto 2% auto; */
     justify-content: space-evenly;
     align-items: center;
+    /* margin: 1% auto 2% auto; */
+    /* height: 12%; */
 }
 
 .send_code_btn {
-    height: 100%;
     width: auto;
+    /* height: 100%; */
 }
 
 .chat_input_box {
     display: flex;
-    flex-direction: row;
-    height: 100%;
     width: 89%;
+    margin: 0 10px;
+    flex-direction: row;
     justify-content: space-between;
+    /* height: 100%; */
+    /* align-items: flex-end; */
 }
 
+/* changees */
 .chat_input_field {
-    height: 100%;
-    width: 92%;
+    height: 45px;
+    width: 98%;   
+    max-height: 200px;
     background-color: white;
     border: 1px solid grey;
     border-radius: 13px;
-    padding: 0% 1% 0% 1%;
-}
+    resize: none;
+    font-size: 16px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+
 
 .chat_send_btn {
-    height: 100%;
+    /* height: 100%; */
     width: auto;
 }
 

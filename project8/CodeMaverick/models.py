@@ -64,6 +64,14 @@ class Message(models.Model):
     content = models.TextField(null = False)
     time = models.TimeField(auto_now_add=True)
 
+    def serialized(self):
+        return {
+            "room_id": self.room_id,
+            "sender": self.sender.name,
+            "content": self.content,
+            "time": self.time
+            }
+
 class ChatRoom(models.Model):
     room_id = models.CharField(max_length=24, null=False)
     users = models.ManyToManyField('User', related_name="get_chatRoomUsers", symmetrical=False)

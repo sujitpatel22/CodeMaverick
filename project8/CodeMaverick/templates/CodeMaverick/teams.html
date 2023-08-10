@@ -2,43 +2,53 @@
 {% load static %}
 {% block body %}
 
-<div class="teams_body_selected_box body_main_box win" id ="teams_body_selected_box">
-    <div class="teams_list_box_1 body_box_2 win" id = "teams_title_list_box">
-        <div class = "teams_list_head teams_list_box_2 body_box_3">
+<div class="teams_body_selected_box body_main_box win" id="teams_body_selected_box">
+    <div class="teams_list_box_1 body_box_2 win" id="teams_title_list_box">
+        <div class="teams_list_head teams_list_box_2 body_box_3">
             <h2>Teams</h2>
-            <svg class="new_team_btn" id="new_team_btn" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="60" height="60" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve">
+            <svg class="new_team_btn" id="new_team_btn" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="60" height="60"
+                x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve">
                 <g>
-                  <linearGradient id="a" x1="11.856" x2="11.856" y1="22.49" y2="1.237" gradientUnits="userSpaceOnUse">
-                    <stop stop-opacity="1" stop-color="#5c5c5c" offset="1"></stop>
-                    <stop stop-opacity="1" stop-color="#ffa28d" offset="1"></stop>
-                  </linearGradient>
-                  <circle cx="11.856" cy="12" r="10" fill="url(#a)" data-original="url(#a)" class=""></circle>
-                  <path fill="#929292" d="M15.856 11h-3V8a1 1 0 0 0-2 0v3h-3a1 1 0 0 0 0 2h3v3a1 1 0 0 0 2 0v-3h3a1 1 0 0 0 0-2z" data-original="#fff1f3" class="" opacity="1"></path>
+                    <linearGradient id="a" x1="11.856" x2="11.856" y1="22.49" y2="1.237" gradientUnits="userSpaceOnUse">
+                        <stop stop-opacity="1" stop-color="#5c5c5c" offset="1"></stop>
+                        <stop stop-opacity="1" stop-color="#ffa28d" offset="1"></stop>
+                    </linearGradient>
+                    <circle cx="11.856" cy="12" r="10" fill="url(#a)" data-original="url(#a)" class=""></circle>
+                    <path fill="#929292"
+                        d="M15.856 11h-3V8a1 1 0 0 0-2 0v3h-3a1 1 0 0 0 0 2h3v3a1 1 0 0 0 2 0v-3h3a1 1 0 0 0 0-2z"
+                        data-original="#fff1f3" class="" opacity="1"></path>
                 </g>
-            </svg>  
+            </svg>
         </div>
-        <input class = "teams_list_box_2 teams_search search" type = "search" placeholder="Search teams">
-        <div class = "all_teams_list_box teams_list_box_2 body_box_3" id="all_teams_list_box">
+        <input class="teams_list_box_2 teams_search search" type="search" placeholder="Search teams">
+        <div class="all_teams_list_box teams_list_box_2 body_box_3" id="all_teams_list_box">
 
         </div>
     </div>
-    <div class="teams_selected_box body_box_2 win" id = "teams_selected_box">
-        <div class=  "team_info_box_head team_info_box_2 team_info_box">
-            <p class = "team_title title" id="team_title">My team</p>
-            <button class="show_team_info_btn btn" id ="show_team_info">Info</button>
+    <div class="teams_selected_box body_box_2 win" id="teams_selected_box">
+        <div class="team_info_box_head team_info_box_2 team_info_box">
+            <p class="team_title title" id="team_title">My team</p>
+            <button class="show_team_info_btn btn" id="show_team_info">Info</button>
         </div>
-        <div class = "team_info_box_body team_info_box_2 team_info_box">
+        <div class="team_info_box_body team_info_box_2 team_info_box">
             <p class="team_rank"><strong>Rank: 2234567890</strong></p>
-            <p class = "team_members_count"><strong>5 members</strong></p>
+            <p class="team_members_count"><strong>5 members</strong></p>
             <div class="team_members_icons_box members_icons_box">
-                <span class = "team_members_icon_1">
+                <span class="team_members_icon_1">
             </div>
         </div>
-        <div class="team_chat_box team_info_box">
+        <!-- div changes to form -->
+        <form class="team_chat_box team_info_box">
             <div class="chat_content">
-                <div class="left_msg_container_main">
+                <!-- <div class="left_msg_container_main">
                     <div class="left_msg_box msg_box">
-                        <svg viewBox="0 0 8 13" height="13" width="8" preserveAspectRatio="xMidYMid meet" class="tail_end_left" version="1.1" x="0px" y="0px" enable-background="new 0 0 8 13" xml:space="preserve"><path fill="#242424" d="M1.533,2.568L8,11.193V0L2.812,0C1.042,0,0.474,1.156,1.533,2.568z"></path></svg>
+                        <svg viewBox="0 0 8 13" height="13" width="8" preserveAspectRatio="xMidYMid meet"
+                            class="tail_end_left" version="1.1" x="0px" y="0px" enable-background="new 0 0 8 13"
+                            xml:space="preserve">
+                            <path fill="#242424" d="M1.533,2.568L8,11.193V0L2.812,0C1.042,0,0.474,1.156,1.533,2.568z">
+                            </path>
+                        </svg>
                         <div class="left_quote_msg quote_msg">
                             <div class="msg_head">
                                 <p class="left_msg_user_name msg_user_name">Rohit Sharma</p>
@@ -49,13 +59,30 @@
                         </div>
                     </div>
                     <div class="msg_utilities">
-                        <svg class="reply_msg_icon" viewBox="0 0 25 25" height="25" width="25" preserveAspectRatio="xMidYMid meet" version="1.1" x="0px" y="0px" enable-background="new 0 0 25 25" xml:space="preserve" transform="rotate(180, 0, 0)"><path fill-rule="evenodd" clip-rule="evenodd" fill="darkgray" d="M14.248,6.973c0-0.614,0.741-0.921,1.174-0.488l5.131,5.136 c0.269,0.269,0.269,0.704,0,0.973l-5.131,5.136c-0.433,0.433-1.174,0.126-1.174-0.488v-2.319c-4.326,0-7.495,1.235-9.85,3.914 c-0.209,0.237-0.596,0.036-0.511-0.268c1.215-4.391,4.181-8.492,10.361-9.376V6.973z"></path></svg>
-                        <svg class="forward_msg_icon" viewBox="0 0 25 25" height="25" width="25" preserveAspectRatio="xMidYMid meet" version="1.1" x="0px" y="0px" enable-background="new 0 0 25 25" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="darkgray" d="M14.248,6.973c0-0.614,0.741-0.921,1.174-0.488l5.131,5.136 c0.269,0.269,0.269,0.704,0,0.973l-5.131,5.136c-0.433,0.433-1.174,0.126-1.174-0.488v-2.319c-4.326,0-7.495,1.235-9.85,3.914 c-0.209,0.237-0.596,0.036-0.511-0.268c1.215-4.391,4.181-8.492,10.361-9.376V6.973z"></path></svg>
+                        <svg class="reply_msg_icon" viewBox="0 0 25 25" height="25" width="25"
+                            preserveAspectRatio="xMidYMid meet" version="1.1" x="0px" y="0px"
+                            enable-background="new 0 0 25 25" xml:space="preserve" transform="rotate(180, 0, 0)">
+                            <path fill-rule="evenodd" clip-rule="evenodd" fill="darkgray"
+                                d="M14.248,6.973c0-0.614,0.741-0.921,1.174-0.488l5.131,5.136 c0.269,0.269,0.269,0.704,0,0.973l-5.131,5.136c-0.433,0.433-1.174,0.126-1.174-0.488v-2.319c-4.326,0-7.495,1.235-9.85,3.914 c-0.209,0.237-0.596,0.036-0.511-0.268c1.215-4.391,4.181-8.492,10.361-9.376V6.973z">
+                            </path>
+                        </svg>
+                        <svg class="forward_msg_icon" viewBox="0 0 25 25" height="25" width="25"
+                            preserveAspectRatio="xMidYMid meet" version="1.1" x="0px" y="0px"
+                            enable-background="new 0 0 25 25" xml:space="preserve">
+                            <path fill-rule="evenodd" clip-rule="evenodd" fill="darkgray"
+                                d="M14.248,6.973c0-0.614,0.741-0.921,1.174-0.488l5.131,5.136 c0.269,0.269,0.269,0.704,0,0.973l-5.131,5.136c-0.433,0.433-1.174,0.126-1.174-0.488v-2.319c-4.326,0-7.495,1.235-9.85,3.914 c-0.209,0.237-0.596,0.036-0.511-0.268c1.215-4.391,4.181-8.492,10.361-9.376V6.973z">
+                            </path>
+                        </svg>
                     </div>
-                </div>
-                <div class="right_msg_container_main">
+                </div> -->
+
+                
+                <!-- <div class="right_msg_container_main">
                     <div class="right_msg_box msg_box">
-                        <svg viewBox="0 0 8 13" height="13" width="8" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 8 13" xml:space="preserve"><path fill="#1f441f" d="M5.188,0H0v11.193l6.467-8.625C7.526,1.156,6.958,0,5.188,0z"></path></svg>
+                        <svg viewBox="0 0 8 13" height="13" width="8" preserveAspectRatio="xMidYMid meet" class=""
+                            version="1.1" x="0px" y="0px" enable-background="new 0 0 8 13" xml:space="preserve">
+                            <path fill="#1f441f" d="M5.188,0H0v11.193l6.467-8.625C7.526,1.156,6.958,0,5.188,0z"></path>
+                        </svg>
                         <div class="right_quote_msg quote_msg">
                             <div class="msg_head">
                                 <p class="right_msg_user_name msg_user_name">Sujit Patel</p>
@@ -66,55 +93,81 @@
                         </div>
                     </div>
                     <div class="msg_utilities">
-                        <svg class="reply_msg_icon" viewBox="0 0 25 25" height="25" width="25" preserveAspectRatio="xMidYMid meet" version="1.1" x="0px" y="0px" enable-background="new 0 0 25 25" xml:space="preserve" transform="rotate(180, 0, 0)"><path fill-rule="evenodd" clip-rule="evenodd" fill="darkgray" d="M14.248,6.973c0-0.614,0.741-0.921,1.174-0.488l5.131,5.136 c0.269,0.269,0.269,0.704,0,0.973l-5.131,5.136c-0.433,0.433-1.174,0.126-1.174-0.488v-2.319c-4.326,0-7.495,1.235-9.85,3.914 c-0.209,0.237-0.596,0.036-0.511-0.268c1.215-4.391,4.181-8.492,10.361-9.376V6.973z"></path></svg>
-                        <svg class="forward_msg_icon" viewBox="0 0 25 25" height="25" width="25" preserveAspectRatio="xMidYMid meet" version="1.1" x="0px" y="0px" enable-background="new 0 0 25 25" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="darkgray" d="M14.248,6.973c0-0.614,0.741-0.921,1.174-0.488l5.131,5.136 c0.269,0.269,0.269,0.704,0,0.973l-5.131,5.136c-0.433,0.433-1.174,0.126-1.174-0.488v-2.319c-4.326,0-7.495,1.235-9.85,3.914 c-0.209,0.237-0.596,0.036-0.511-0.268c1.215-4.391,4.181-8.492,10.361-9.376V6.973z"></path></svg>
+                        <svg class="reply_msg_icon" viewBox="0 0 25 25" height="25" width="25"
+                            preserveAspectRatio="xMidYMid meet" version="1.1" x="0px" y="0px"
+                            enable-background="new 0 0 25 25" xml:space="preserve" transform="rotate(180, 0, 0)">
+                            <path fill-rule="evenodd" clip-rule="evenodd" fill="darkgray"
+                                d="M14.248,6.973c0-0.614,0.741-0.921,1.174-0.488l5.131,5.136 c0.269,0.269,0.269,0.704,0,0.973l-5.131,5.136c-0.433,0.433-1.174,0.126-1.174-0.488v-2.319c-4.326,0-7.495,1.235-9.85,3.914 c-0.209,0.237-0.596,0.036-0.511-0.268c1.215-4.391,4.181-8.492,10.361-9.376V6.973z">
+                            </path>
+                        </svg>
+                        <svg class="forward_msg_icon" viewBox="0 0 25 25" height="25" width="25"
+                            preserveAspectRatio="xMidYMid meet" version="1.1" x="0px" y="0px"
+                            enable-background="new 0 0 25 25" xml:space="preserve">
+                            <path fill-rule="evenodd" clip-rule="evenodd" fill="darkgray"
+                                d="M14.248,6.973c0-0.614,0.741-0.921,1.174-0.488l5.131,5.136 c0.269,0.269,0.269,0.704,0,0.973l-5.131,5.136c-0.433,0.433-1.174,0.126-1.174-0.488v-2.319c-4.326,0-7.495,1.235-9.85,3.914 c-0.209,0.237-0.596,0.036-0.511-0.268c1.215-4.391,4.181-8.492,10.361-9.376V6.973z">
+                            </path>
+                        </svg>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <div class="chat_input_container">
-                <svg class="send_code_btn" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="50" height="50" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class="hovered-paths">
+                <svg class="send_code_btn" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="50"
+                    height="50" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512"
+                    xml:space="preserve" class="hovered-paths">
                     <g>
-                      <g data-name="1">
-                        <path fill="#1fc759" d="M8.53 9.23 7.061 10.7l1.469 1.47a.75.75 0 1 1-1.06 1.06l-2-2a.749.749 0 0 1 0-1.06l2-2a.75.75 0 1 1 1.06 1.06zm10 .94-2-2a.75.75 0 1 0-1.06 1.06l1.469 1.47-1.469 1.47a.75.75 0 1 0 1.06 1.06l2-2a.749.749 0 0 0 0-1.06z" data-original="#1fc759" class="hovered-path"></path>
-                        <path d="M21.031 2.94A6.848 6.848 0 0 0 16 1.22H8c-4.416 0-6.75 2.334-6.75 6.75v5c0 2.662.558 4.391 1.756 5.44 1.32 1.154 3.265 1.31 4.994 1.31h.5a.471.471 0 0 1 .2.1l1.5 2a2.265 2.265 0 0 0 1.8.96 2.268 2.268 0 0 0 1.8-.96l1.5-2a.249.249 0 0 1 .2-.1h.5c4.416 0 6.75-2.334 6.75-6.75v-5a6.845 6.845 0 0 0-1.719-5.03zm.219 10.03c0 3.582-1.668 5.25-5.25 5.25h-.5a1.758 1.758 0 0 0-1.4.7l-1.5 2a.68.68 0 0 1-1.2 0l-1.5-2a1.888 1.888 0 0 0-1.4-.7H8c-2.055 0-3.253-.281-4.006-.939-.849-.743-1.244-2.113-1.244-4.311v-5c0-3.582 1.668-5.25 5.25-5.25h8A5.438 5.438 0 0 1 19.97 4a5.441 5.441 0 0 1 1.28 3.97zm-7.561-4.308-2 4.667a.75.75 0 1 1-1.378-.591l2-4.667a.75.75 0 1 1 1.378.591z" fill="white" data-original="#000000" class=""></path>
-                      </g>
+                        <g data-name="1">
+                            <path fill="#1fc759"
+                                d="M8.53 9.23 7.061 10.7l1.469 1.47a.75.75 0 1 1-1.06 1.06l-2-2a.749.749 0 0 1 0-1.06l2-2a.75.75 0 1 1 1.06 1.06zm10 .94-2-2a.75.75 0 1 0-1.06 1.06l1.469 1.47-1.469 1.47a.75.75 0 1 0 1.06 1.06l2-2a.749.749 0 0 0 0-1.06z"
+                                data-original="#1fc759" class="hovered-path"></path>
+                            <path
+                                d="M21.031 2.94A6.848 6.848 0 0 0 16 1.22H8c-4.416 0-6.75 2.334-6.75 6.75v5c0 2.662.558 4.391 1.756 5.44 1.32 1.154 3.265 1.31 4.994 1.31h.5a.471.471 0 0 1 .2.1l1.5 2a2.265 2.265 0 0 0 1.8.96 2.268 2.268 0 0 0 1.8-.96l1.5-2a.249.249 0 0 1 .2-.1h.5c4.416 0 6.75-2.334 6.75-6.75v-5a6.845 6.845 0 0 0-1.719-5.03zm.219 10.03c0 3.582-1.668 5.25-5.25 5.25h-.5a1.758 1.758 0 0 0-1.4.7l-1.5 2a.68.68 0 0 1-1.2 0l-1.5-2a1.888 1.888 0 0 0-1.4-.7H8c-2.055 0-3.253-.281-4.006-.939-.849-.743-1.244-2.113-1.244-4.311v-5c0-3.582 1.668-5.25 5.25-5.25h8A5.438 5.438 0 0 1 19.97 4a5.441 5.441 0 0 1 1.28 3.97zm-7.561-4.308-2 4.667a.75.75 0 1 1-1.378-.591l2-4.667a.75.75 0 1 1 1.378.591z"
+                                fill="white" data-original="#000000" class=""></path>
+                        </g>
                     </g>
-                  </svg>
-                  
+                </svg>
+
                 <div class="chat_input_box">
-                    <input class = "chat_input_field input" id="chat_message_input" type = "text" required placeholder="Type here to send">
-                    <svg class="chat_send_btn" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="50" height="50" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve">
+                    <textarea class="chat_input_field input" id="chat_message_input" required
+                    placeholder="Enter a prompt here"></textarea>
+                </div>
+                    <svg class="chat_send_btn" id="chat_send_btn" type="submit" xmlns="http://www.w3.org/2000/svg"
+                        version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+                        width="50" height="50" x="0" y="0" viewBox="0 0 512 512"
+                        style="enable-background:new 0 0 512 512" xml:space="preserve">
                         <g>
                             <linearGradient id="a" x1="256" x2="256" y1="512" y2="0" gradientUnits="userSpaceOnUse">
-                            <stop offset="0" stop-color="#addcff"></stop>
-                            <stop offset=".503" stop-color="#eaf6ff"></stop>
-                            <stop offset="1" stop-color="#eaf6ff"></stop>
+                                <stop offset="0" stop-color="#addcff"></stop>
+                                <stop offset=".503" stop-color="#eaf6ff"></stop>
+                                <stop offset="1" stop-color="#eaf6ff"></stop>
                             </linearGradient>
-                            <linearGradient id="b" x1="255.996" x2="255.996" y1="407" y2="105" gradientUnits="userSpaceOnUse">
-                            <stop offset="0" stop-color="#00c0ff"></stop>
-                            <stop offset="1" stop-color="#5558ff"></stop>
+                            <linearGradient id="b" x1="255.996" x2="255.996" y1="407" y2="105"
+                                gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#00c0ff"></stop>
+                                <stop offset="1" stop-color="#5558ff"></stop>
                             </linearGradient>
                             <circle cx="256" cy="256" r="256" fill="url(#a)" data-original="url(#a)" class=""></circle>
-                            <path fill="url(#b)" d="M402.767 248.441 171.833 106.328a8.836 8.836 0 0 0-10.305.711 8.887 8.887 0 0 0-2.672 9.975l48.791 130.109h119.405c4.909 0 8.882 3.973 8.882 8.882s-3.973 8.882-8.882 8.882H207.647l-48.791 130.109a8.887 8.887 0 0 0 12.977 10.686l230.934-142.114a8.867 8.867 0 0 0 4.224-7.564 8.866 8.866 0 0 0-4.224-7.563zm-288.885 16.446h53.292c4.909 0 8.882-3.973 8.882-8.882s-3.973-8.882-8.882-8.882h-53.292c-4.909 0-8.882 3.973-8.882 8.882s3.973 8.882 8.882 8.882zm35.528 17.764h-35.528c-4.909 0-8.882 3.973-8.882 8.882s3.973 8.882 8.882 8.882h35.528a8.877 8.877 0 0 0 8.882-8.882 8.876 8.876 0 0 0-8.882-8.882zm-35.528-53.293h35.528c4.909 0 8.882-3.973 8.882-8.882s-3.973-8.882-8.882-8.882h-35.528c-4.909 0-8.882 3.973-8.882 8.882s3.973 8.882 8.882 8.882z" data-original="url(#b)" class=""></path>
+                            <path fill="url(#b)"
+                                d="M402.767 248.441 171.833 106.328a8.836 8.836 0 0 0-10.305.711 8.887 8.887 0 0 0-2.672 9.975l48.791 130.109h119.405c4.909 0 8.882 3.973 8.882 8.882s-3.973 8.882-8.882 8.882H207.647l-48.791 130.109a8.887 8.887 0 0 0 12.977 10.686l230.934-142.114a8.867 8.867 0 0 0 4.224-7.564 8.866 8.866 0 0 0-4.224-7.563zm-288.885 16.446h53.292c4.909 0 8.882-3.973 8.882-8.882s-3.973-8.882-8.882-8.882h-53.292c-4.909 0-8.882 3.973-8.882 8.882s3.973 8.882 8.882 8.882zm35.528 17.764h-35.528c-4.909 0-8.882 3.973-8.882 8.882s3.973 8.882 8.882 8.882h35.528a8.877 8.877 0 0 0 8.882-8.882 8.876 8.876 0 0 0-8.882-8.882zm-35.528-53.293h35.528c4.909 0 8.882-3.973 8.882-8.882s-3.973-8.882-8.882-8.882h-35.528c-4.909 0-8.882 3.973-8.882 8.882s3.973 8.882 8.882 8.882z"
+                                data-original="url(#b)" class=""></path>
                         </g>
                     </svg>
-                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 </div>
 <div class="new_team_container">
-<form class="new_team_box">
-    <strong>Create new Team</strong>
-    <input id="new_team_name" type="text" placeholder="Team name" min = "4" max="24" required>
-    <p>Cannot contain character other than a-z, A-Z, 0-9, _</p>
-    <div>
-        <button type = "submit" id="new_team_create_btn">Create</button>
-        <button type = "button" id="cancel_btn">Cancel</button>
-    </div>
-</form>
+    <form class="new_team_box">
+        <strong>Create new Team</strong>
+        <input id="new_team_name" type="text" placeholder="Team name" min="4" max="24" required>
+        <p>Cannot contain character other than a-z, A-Z, 0-9, _</p>
+        <div>
+            <button type="submit" id="new_team_create_btn">Create</button>
+            <button type="button" id="cancel_btn">Cancel</button>
+        </div>
+    </form>
 </div>
 
 {% endblock %}
