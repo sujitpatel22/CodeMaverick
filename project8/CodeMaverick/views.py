@@ -25,6 +25,7 @@ def teams(request):
 def load_teams(request):
     my_teams = Team.objects.filter(members__id = request.user.id).order_by("rank")
     teams = Team.objects.exclude(members__id = request.user.id).order_by("rank")
+    print([team.team_info() for team in my_teams])
     return JsonResponse({"my_teams": [team.team_info() for team in my_teams], "teams": [team.team_info() for team in teams]}, safe=False, status=201)
     return JsonResponse({"error": "Something went wrong! Cannot load teams!"}, status=200)
 
@@ -52,6 +53,26 @@ def create_new_team(request):
     return JsonResponse({"error":"Team name not available!"})
     return JsonResponse({"error":"Team name cannot have characters other than a-z, A-Z, 0-9, _. length must be greter than 3 and less than/equal 24"})
     return JsonResponse({"error":"Something went wrong!"})
+
+# Added message function
+@csrf_exempt
+@login_required
+def send_message(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        input_message = data.get("message")
+        new_message = Message.objects.create(room_id = "team_id", sender = request.user, content = input_message)
+        new_message.save()
+        return JsonResponse({"sent" : "Message sent succefully!"})
+
+    messages = Message.objects.all()
+    print([message for message in messages])
+
+    return JsonResponse({"messages": [message.serialized() for message in messages], "user": request.user.username}, safe=False, status=201)
+    
+
+
+
 
 @csrf_exempt
 @login_required
