@@ -24,7 +24,6 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: center;
     /* align-items: center; */
 }
 
@@ -220,19 +219,18 @@ body {
 }
 
 /* /////////////////////////////////////////////////////////////*/
-.new_team_container {
+.team_action_popup_container {
     height: 93%;
     width: 100%;
     position: absolute;
     background-color: none;
-    display: none;
 }
 
-.new_team_box * {
+.team_action_box * {
     font-family: quicksand;
 }
 
-.new_team_box {
+.team_action_box {
     height: 45%;
     width: 50%;
     border-radius: 10px;
@@ -245,11 +243,11 @@ body {
     filter: drop-shadow(2px 4px 6px grey);
 }
 
-.new_team_box strong {
+.team_action_box strong {
     font-size: 25px;
 }
 
-.new_team_box input {
+.team_action_box input {
     font-size: 20px;
     height: 25%;
     border: none;
@@ -258,16 +256,16 @@ body {
     margin: 5% 0 0% 0;
 }
 
-.new_team_box p {
+.team_action_box p {
     font-size: 12px;
     color: #858585;
 }
 
-.new_team_box div {
+.team_action_box div {
     margin: 5% 0 2% 0;
 }
 
-.new_team_box div button {
+.team_action_box div button {
     border: none;
     border-radius: 3px;
     height: 100%;
@@ -276,17 +274,17 @@ body {
     float: right;
 }
 
-.new_team_box div #new_team_create_btn {
+.team_action_box div #new_team_create_btn {
     color: #004000;
     background-color: #96ff96;
 }
 
-.new_team_box #cancel_btn {
+.team_action_box #cancel_btn {
     color: #400000;
     background-color: #ff9696;
 }
 
-.new_team_box div button:hover {
+.team_action_box div button:hover {
     cursor: pointer;
 }
 
@@ -347,7 +345,6 @@ body {
     border: none;
 }
 
-/* added scrollbar */
 .all_teams_list_box {
     flex-direction: column;
     height: 81%;
@@ -358,19 +355,18 @@ body {
     overflow: auto;
 }
 
-
 .team_item {
     display: flex;
     flex-direction: column;
     font-family: 'Quicksand', sans-serif;
-    background-color: rgb(243, 243, 255);
-    border: 1px solid darkgray;
+    background-color: rgb(246 246 246);
+    /* border: 1px solid darkgray; */
     border-radius: 4px;
     height: 20%;
     width: 100%;
     padding: 0 1% 0 1%;
-    margin: 0.5% auto;
-    /* box-shadow: 0px 1px 3px grey; */
+    margin: 0% auto 4% auto;
+    box-shadow: 0px 1px 5px 1px darkgray;
 }
 
 .team_item .team_item_box2 {
@@ -439,6 +435,8 @@ body {
 
 .team_title {
     color: #00ff9b;
+    font-size: 22px;
+    margin: auto 1.5%;
 }
 
 .show_team_info_btn {
@@ -457,29 +455,85 @@ body {
 .team_info_box_body {
     font-family: 'Quicksand', sans-serif;
     height: 40%;
+    width: 65%;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
     display: none;
+    margin: 3.5% 0% auto 0%;
     z-index: 1;
+    position: absolute;
+    align-items: center;
 }
 
 .team_info_box_body .team_rank {
     background-color: rgb(80 80 80);
     min-width: 10%;
-    color: #ff9300;
+    color: #ffd9a5;
     border: none;
     border-radius: 5px;
     padding: 2%;
     height: 15%;
     display: flex;
     align-items: center;
-    margin: 2% 0% 1% 1%;
+    margin: 2% auto 1% 1%;
 }
 
 .team_info_box_body .team_members_count {
     color: #9d9d9d;
+    margin: 1% auto 1% 1%;
+}
+
+.team_info_box_body .team_members_icons_box {
+    display: flex;
+    /* border: 1px solid gray; */
+    height: 38%;
+    width: 100%;
     margin: 1% 0% 1% 1%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    overflow: auto;
+}
+
+.team_members_icons_box .member_icon_card {
+    height: 43%;
+    width: auto;
+    background-color: rgb(32 32 32);
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1%;
+    margin: 0.5% 1.5% 1% 0.5%;
+}
+.team_members_icons_box .member_icon_card:hover {
+    background-color: rgb(68, 68, 68);
+    cursor: pointer;
+}
+
+.member_icon_card h3 {
+    color: #bfbfbf;
+    font-size: 13px;
+    margin: 1% 0 1% 0;
+}
+
+.member_icon_card h5 {
+    color: #7a7a7a;
+    font-size: 11px;
+    margin: 1% 0 1% 0;
+}
+
+.team_info_box_body .team_utilities {
+    margin: 1% 0% 1% 1%;
+    border-top: 1px solid gray;
+    height: 15%;
+    width: 100%;
+}
+
+.team_utilities svg {
+    height: 100%;
+    width: auto;
+    float: right;
 }
 
 .team_chat_box {
@@ -520,12 +574,11 @@ body {
 }
 
 .msg_box {
-    /* min-width: 70%; */
+    min-width: 70%;
     width: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    margin: 1px 2px;
     /* border-radius: 0px 8px 8px 8px; */
 }
 
@@ -536,7 +589,7 @@ body {
 .quote_msg {
     height: auto;
     min-width: 108px;
-    max-width: 35vw;
+    width: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -609,46 +662,38 @@ body {
     flex-direction: row;
     align-content: center;
     border-radius: 30px;
+    height: 12%;
     width: 100%;
     padding: 1% 1% 2% 1%;
+    /* margin: 1% auto 2% auto; */
     justify-content: space-evenly;
     align-items: center;
-    /* margin: 1% auto 2% auto; */
-    /* height: 12%; */
 }
 
 .send_code_btn {
+    height: 100%;
     width: auto;
-    /* height: 100%; */
 }
 
 .chat_input_box {
     display: flex;
-    width: 89%;
-    margin: 0 10px;
     flex-direction: row;
+    height: 100%;
+    width: 89%;
     justify-content: space-between;
-    /* height: 100%; */
-    /* align-items: flex-end; */
 }
 
-/* changees */
 .chat_input_field {
-    height: 45px;
-    width: 98%;   
-    max-height: 200px;
+    height: 100%;
+    width: 92%;
     background-color: white;
     border: 1px solid grey;
     border-radius: 13px;
-    resize: none;
-    font-size: 16px;
-    padding: 10px;
-    transition: all 0.3s ease-in-out;
-  }
-
+    padding: 0% 1% 0% 1%;
+}
 
 .chat_send_btn {
-    /* height: 100%; */
+    height: 100%;
     width: auto;
 }
 

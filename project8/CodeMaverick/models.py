@@ -1,7 +1,8 @@
 from sqlite3 import connect
 from django.contrib.auth.models import AbstractUser
-from django.db import models
+from django.utils.crypto import get_random_string
 from datetime import datetime
+from django.db import models
 
 class User(AbstractUser):
     pass
@@ -50,33 +51,42 @@ class Team(models.Model):
     members = models.ManyToManyField('User', related_name="get_members", symmetrical = False)
 
     def team_info(self):
+        temp_randID = get_random_string(length=8)
         return {
-            "team_id": self.team_id,
+            "team_id": temp_randID+self.team_id,
             "name": self.name,
-            "admin": self.admin.name,
             "rank": self.rank,
-            "members": self.members.count()
+            "admin": self.admin.name,
+            "members_count": self.members.count()
             }
 
 class Message(models.Model):
+    msg_id = models.BigAutoField(primary_key = True)
     room_id = models.CharField(max_length=24, null=False)
-    sender = models.ForeignKey('User', on_delete=models.CASCADE, null=False)
-    content = models.TextField(null = False)
+    sender = models.ForeignKey('User', on_delete=models.PROTECT, null=False)
+    quote_text = models.TextField(null = False)
+    date = models.DateField(auto_now_add=True)
     time = models.TimeField(auto_now_add=True)
 
-    def serialized(self):
+    def message_form(self):
+        temp_randID = get_random_string(length=8)
         return {
-            "room_id": self.room_id,
-            "sender": self.sender.name,
-            "content": self.content,
+            "msg_id": temp_randID+self.msg_id,
+            "sender_id": self.sender.id,
+            "sender_name": self.sender.name,
+            "quote_text": self.quote_text,
             "time": self.time
-            }
+        }
 
 class ChatRoom(models.Model):
     room_id = models.CharField(max_length=24, null=False)
     users = models.ManyToManyField('User', related_name="get_chatRoomUsers", symmetrical=False)
     messages = models.ManyToManyField('Message', related_name="get_messages", symmetrical=False)
     team = models.ForeignKey('Team', on_delete=models.PROTECT, null = True)
+
+    def __str__(self):
+        temp_randID = get_random_string(length=8)
+        return f"{temp_randID+self.room_id}"
 
 class Solution(models.Model):
     id = models.BigAutoField(primary_key=True, null = False)
